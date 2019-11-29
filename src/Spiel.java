@@ -25,8 +25,28 @@ public class Spiel implements FourWinsLogic {
 		if (hatGewonnenVertikal(spieler, spalte, this.getChripVertikal(spalte))) {
 			return Ergebnis.GEWINNT;
 		}
+		if (hatGewonnenDiagonal(spieler, spalte, this.getChripVertikal(spalte))) {
+			return Ergebnis.GEWINNT;
+		}
 
 		return Ergebnis.UNBEKANNT;
+	}
+	
+	private boolean hatGewonnenDiagonal(Spieler spieler, int spalte, int zeile) {
+		if(spalte>=0&&spalte<=3) {
+			if(zeile>=0&&zeile<=2) {
+				if((this.spielfeld[spalte-1][zeile-1]==spieler)&&(this.spielfeld[spalte-2][zeile-2]==spieler)&&(this.spielfeld[spalte-3][zeile-3]==spieler)) {
+					return true;
+				}
+			}
+		}
+		
+		//if((this.spielfeld[0][0]==spieler)&&(this.spielfeld[1][1]==spieler)&&(this.spielfeld[2][2]==spieler)&&(this.spielfeld[3][3]==spieler)) {
+		//	return true;
+		//}
+		
+		return false;
+		
 	}
 
 	private boolean hatGewonnenVertikal(Spieler spieler, int spalte, int zeile) {

@@ -55,7 +55,7 @@ public class MainTest {
          assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.BLAU, 2));
     }
     @Test
-    public void GewinntDiagonalRot() {
+    public void GewinntDiagonalBlau() {
     	assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
     	assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 1));
     	assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 2));
