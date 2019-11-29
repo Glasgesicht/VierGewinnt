@@ -1,4 +1,4 @@
 
 public interface FourWinsLogic {
-    Ergebnis throwChrip(Player p, int );
+    Ergebnis throwChrip(Spieler p, int coll);
 }
