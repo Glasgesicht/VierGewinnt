@@ -4,7 +4,8 @@ import org.junit.Test;
 
 public class MainTest {
     
-    private FourWinsLogic logic = new Spiel();
+    private FourWinsLogic logic = new SpielRekursiv();
+    //private FourWinsLogic logic = new Spiel();
 
     @Test
     public void werfeSteinLinksUnten() {
@@ -36,12 +37,12 @@ public class MainTest {
     
     @Test
     public void GewinnVertikalRot() {
-    	 assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
-         assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.ROT, 0));
+    	 assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
+         assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.ROT, 5));
     }
     
     @Test
