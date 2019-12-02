@@ -36,6 +36,33 @@ public class MainTest {
     }
     
     @Test
+    public void spieleUnentschieden() {
+
+        for(int i = 0; i<6;i+=2) {
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+0));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+0));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+0));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+0));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+0));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+0));
+            
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+1));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+1));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, i+1));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+1));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+1));
+            assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, i+1));
+    }
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+        assertEquals(Ergebnis.UNENTSCHIEDEN, logic.throwChrip(Spieler.BLAU, 6));    
+    }
+    
+    
+    @Test
     public void GewinnVertikalRot() {
     	 assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
          assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
@@ -70,6 +97,5 @@ public class MainTest {
     	assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 1));
     	assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 3));
     	assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.BLAU, 3));
-    	
     }
 }

@@ -2,6 +2,7 @@
 public class SpielRekursiv implements FourWinsLogic {
 
     Spieler spielfeld[][] = new Spieler[7][6];
+    int gesetzteSteine = 0;
 
     // hallo Phill
     @Override
@@ -16,6 +17,7 @@ public class SpielRekursiv implements FourWinsLogic {
         for (int i = 0; i < 6; i++) {
             if (!isFeldBelegt(spalte, i)) {
                 this.spielfeld[spalte][i] = spieler;
+                gesetzteSteine++;
                 break;
             }
         }
@@ -28,6 +30,9 @@ public class SpielRekursiv implements FourWinsLogic {
         if (hatGewonnenDiagonal(spieler, spalte, this.getZeile(spalte))) {
             return Ergebnis.GEWINNT;
         }
+        
+        if(gesetzteSteine == 6*7)
+            return Ergebnis.UNENTSCHIEDEN;
 
         return Ergebnis.UNBEKANNT;
     }
