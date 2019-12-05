@@ -3,7 +3,6 @@ public class Spiel implements FourWinsLogic {
 
 	Spieler spielfeld[][] = new Spieler[7][6];
 
-	// hallo Phill
 	@Override
 	public Ergebnis throwChrip(Spieler spieler, int spalte) {
 		if (!isGueltigerZug(spalte)) {
