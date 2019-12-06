@@ -8,8 +8,8 @@ public class Spiel implements FourWinsLogic {
 	/**
 	 * Spielfeld initialisiseren und gesetzte Steine zu Beginn des Spiels auf 0 setzen
 	 */
-    Spieler spielfeld[][] = new Spieler[7][6];
-    int gesetzteSteine = 0;
+    private Spieler spielfeld[][] = new Spieler[7][6];
+    private int gesetzteSteine = 0;
 
     /**
      *@author Philipp, Bernd
