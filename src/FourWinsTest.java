@@ -2,18 +2,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class MainTest {
+public class FourWinsTest {
     
-    private FourWinsLogic logic = new Spiel();
-    //private FourWinsLogic logic = new Spiel();
+    private FourWinsLogic logic = new Spiel("FourWins");
 
     @Test
     public void werfeSteinLinksUnten() {
         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
     }
     @Test
-    public void werfeSteinLinksUnten2() {
-        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
+    public void werfeSteinRechtsUnten2() {
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
     }
     @Test
     public void werfeSteinRechtsDanaben() {
@@ -33,6 +32,17 @@ public class MainTest {
         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 0));
         assertEquals(Ergebnis.FEHLER, logic.throwChrip(Spieler.BLAU, 0));
+    }
+    
+    @Test
+    public void befuelleRechteSpalte() {
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 6));
+        assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 6));
+        assertEquals(Ergebnis.FEHLER, logic.throwChrip(Spieler.BLAU, 6));
     }
     
     @Test
@@ -64,12 +74,22 @@ public class MainTest {
     
     @Test
     public void GewinnVertikalRot() {
-    	 assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 5));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
-         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT, 5));
-         assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.ROT, 5));
+    	 assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 0));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  0));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  0));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  0));
+         assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.ROT,    0));
+    }
+    
+    @Test
+    public void GewinnVertikalRot2() {
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.BLAU, 6));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  6));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  6));
+         assertEquals(Ergebnis.UNBEKANNT, logic.throwChrip(Spieler.ROT,  6));
+         assertEquals(Ergebnis.GEWINNT, logic.throwChrip(Spieler.ROT,    6));
     }
     
     @Test
