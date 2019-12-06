@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class MainTest {
     
-    private FourWinsLogic logic = new SpielRekursiv();
+    private FourWinsLogic logic = new Spiel();
     //private FourWinsLogic logic = new Spiel();
 
     @Test
