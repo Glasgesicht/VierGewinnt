@@ -33,13 +33,9 @@ public class Spiel implements FourWinsLogic {
                 break;
             }
         }
-        if (hatGewonnenHorizontal(spieler, spalte,this.getZeile(spalte))) {
-            return Ergebnis.GEWINNT;
-        }
-        if (hatGewonnenVertikal(spieler, spalte, this.getZeile(spalte))) {
-            return Ergebnis.GEWINNT;
-        }
-        if (hatGewonnenDiagonal(spieler, spalte, this.getZeile(spalte))) {
+        if (hatGewonnenHorizontal(spieler, spalte,this.getZeile(spalte))   ||
+           (hatGewonnenVertikal  (spieler, spalte, this.getZeile(spalte))) ||
+           (hatGewonnenDiagonal  (spieler, spalte, this.getZeile(spalte)))) {
             return Ergebnis.GEWINNT;
         }
         
@@ -75,9 +71,8 @@ public class Spiel implements FourWinsLogic {
      * @return Gibt zur�ck ob der Spieler mit diesem Zug diagonal gewonnen hat
      */
     private boolean hatGewonnenDiagonal(Spieler spieler, int spalte, int zeile) {
-	    if((countDir(spieler, spalte, zeile,Richtung.OBENLINKS) + countDir(spieler, spalte, zeile,Richtung.UNTENRECHTS)) > 4)
-	        return true;
-	    if((countDir(spieler, spalte, zeile,Richtung.OBENRECHTS) + countDir(spieler, spalte, zeile,Richtung.UNTENLINKS)) > 4)
+	    if((countDir(spieler, spalte, zeile,Richtung.OBENLINKS)  + countDir(spieler, spalte, zeile,Richtung.UNTENRECHTS)) > 4 ||
+	      ((countDir(spieler, spalte, zeile,Richtung.OBENRECHTS) + countDir(spieler, spalte, zeile,Richtung.UNTENLINKS))  > 4))
 	        return true;
 	    return false;
 	}
